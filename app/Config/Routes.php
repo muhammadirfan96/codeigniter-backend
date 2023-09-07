@@ -29,8 +29,10 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-// $routes->get('/', 'Home::index');
-$routes->resource("persons", ['controller' => 'portofolio\Persons', 'placeholder' => '(:num)', 'except' => 'index,new,edit']);
+$routes->post('persons', 'portofolio\Persons::create');
+$routes->get('persons/(:num)', 'portofolio\Persons::show/$1');
+$routes->patch('persons/(:num)', 'portofolio\Persons::update/$1');
+$routes->delete('persons/(:num)', 'portofolio\Persons::delete/$1');
 $routes->get('persons/find/(:any)', 'portofolio\Persons::find/$1');
 
 /*

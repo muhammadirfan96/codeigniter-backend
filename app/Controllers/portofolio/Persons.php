@@ -2,19 +2,29 @@
 
 namespace App\Controllers\portofolio;
 
+use App\Models\PersonsModel;
 use CodeIgniter\API\ResponseTrait;
 use CodeIgniter\RESTful\ResourceController;
+use Config\Database;
 
 class Persons extends ResourceController
 {
     use ResponseTrait;
-    protected $modelName = 'App\Models\PersonsModel';
-    protected $format    = 'json';
-    protected $db, $user, $desa;
-
+    protected $db, $model;
     public function __construct()
     {
-        $this->db = \Config\Database::connect();
+        $this->db = Database::connect();
+        $this->model = new PersonsModel();
+    }
+    /**
+     * Return an array of resource objects, themselves in array format
+     *
+     * @return mixed
+     */
+    public function index()
+    {
+        $data = $this->model->orderBy('id', 'DESC')->findAll();
+        return $this->respond($data);
     }
 
     /**
@@ -27,6 +37,16 @@ class Persons extends ResourceController
         $data = $this->model->find($id);
         if (!$data) return $this->failNotFound('no data found');
         return $this->respond($data);
+    }
+
+    /**
+     * Return a new resource object, with default properties
+     *
+     * @return mixed
+     */
+    public function new()
+    {
+        //
     }
 
     /**
@@ -61,6 +81,16 @@ class Persons extends ResourceController
             ]
         ];
         return $this->respondCreated($response);
+    }
+
+    /**
+     * Return the editable properties of a resource object
+     *
+     * @return mixed
+     */
+    public function edit($id = null)
+    {
+        //
     }
 
     /**
