@@ -19,12 +19,8 @@ class Persons extends Migration
                 'type' => 'VARCHAR',
                 'constraint' => 255,
             ],
-            "email" => [
-                'type' => 'VARCHAR',
-                'constraint' => 255,
-            ],
-            "birthday" => [
-                'type' => 'DATE',
+            "coment" => [
+                'type' => 'TEXT',
             ],
             "photo" => [
                 'type' => 'VARCHAR',

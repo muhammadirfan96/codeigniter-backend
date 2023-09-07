@@ -14,7 +14,7 @@ class PersonsModel extends Model
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
-        "name", "email", "birthday", "photo"
+        "name", "coment", "photo"
     ];
 
     // Dates
@@ -31,8 +31,7 @@ class PersonsModel extends Model
     protected $cleanValidationRules = true;
     public $myValidationRules = [
         "name" => "required",
-        "email" => "required|valid_email",
-        "birthday" => "required",
+        "coment" => "required",
         "photo" => "uploaded[photo]|max_size[photo,1024]|is_image[photo]|mime_in[photo,image/jpg,image/jpeg,image/png]",
     ];
 

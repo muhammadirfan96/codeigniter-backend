@@ -11,8 +11,7 @@ class Persons extends Seeder
         $data = [
             [
                 'name' => 'jimmy',
-                'email' => 'jimmy@email.com',
-                'birthday' => '2002-07-10',
+                'coment' => 'ini adalah coment',
                 'photo' => base_url('/img/portofolio/xxx.jpg'),
                 'created_at' => '2023-08-12',
                 'updated_at' => '2023-08-12',

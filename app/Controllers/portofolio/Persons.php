@@ -67,8 +67,7 @@ class Persons extends ResourceController
 
         $data = [
             'name' => $this->request->getVar('name'),
-            'email' => $this->request->getVar('email'),
-            'birthday' => $this->request->getVar('birthday'),
+            'coment' => $this->request->getVar('coment'),
             'photo' => base_url('img/portofolio/' . $namaFile),
         ];
 
@@ -114,8 +113,7 @@ class Persons extends ResourceController
 
         $data = [
             'name' => $this->request->getVar('name'),
-            'email' => $this->request->getVar('email'),
-            'birthday' => $this->request->getVar('birthday'),
+            'coment' => $this->request->getVar('coment'),
         ];
 
         if ($photo != '') {
@@ -169,7 +167,6 @@ class Persons extends ResourceController
         if (str_contains($key, '@')) {
             $keys = explode("@", $key);
             if (str_contains($key, 'name')) $where = "name LIKE '%$keys[1]%'";
-            if (str_contains($key, 'email')) $where = "email LIKE '%$keys[1]%'";
         } else {
             $where = null;
         }
