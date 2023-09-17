@@ -29,4 +29,9 @@ class Services extends BaseService
      *     return new \CodeIgniter\Example();
      * }
      */
+
+    public $classmap = [
+        // ...
+        'jwtConfig' => \Config\JwtConfig::class
+    ];
 }

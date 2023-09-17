@@ -35,6 +35,12 @@ $routes->patch('persons/(:num)', 'portofolio\Persons::update/$1');
 $routes->delete('persons/(:num)', 'portofolio\Persons::delete/$1');
 $routes->get('persons/find/(:any)', 'portofolio\Persons::find/$1');
 
+$routes->post('register', 'auth\Register::index');
+$routes->post('login', 'auth\Login::index');
+$routes->get('me', 'auth\Me::index');
+$routes->get('refresh_token', 'auth\RefreshToken::index');
+$routes->delete('logout', 'auth\Logout::index');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
